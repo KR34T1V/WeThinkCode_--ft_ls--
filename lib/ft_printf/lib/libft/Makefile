@@ -6,18 +6,15 @@
 #    By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/17 11:24:40 by cterblan          #+#    #+#              #
-#    Updated: 2018/09/06 16:00:29 by cterblan         ###   ########.fr        #
+#    Updated: 2018/08/19 08:06:52 by cterblan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ################################################################################
-#								NAME
+#								FILE NAME
 ################################################################################
-AUTHOR := cterblan
-#AUTHOR NAME^^^
-
-NAME := ft_ls
-#PROJECT OUTPUT FILE NAME ^^^
+NAME := libft.a
+#OUTPUT FILE NAME ^^^
 ################################################################################
 #								DIRECTORIES
 ################################################################################
@@ -27,27 +24,76 @@ SRC_DIR := src
 #SOURCES DIRECTORY ^^^
 OBJ_DIR := obj
 #OBJECTS DIRECTORY ^^^
-LIB_DIR := lib
-#LIBRARY DIRECTORY ^^^
 ################################################################################
 #								FILES
 ################################################################################
 #SRC:= ft_function.c
-SRC :=	ft_isdir.c\
-		ft_isreg.c\
-		ftls_main.c\
-		ftls_read_dir.c\
-		ftls_flag_set.c\
-		ftls_flag_none.c\
+SRC := ft_isascii.c\
+		ft_memalloc.c\
+		ft_memmove.c\
+		ft_putnbr.c\
+		ft_strcpy.c\
+		ft_strlen.c\
+		ft_toupper.c\
+		ft_isdigit.c\
+		ft_memccpy.c\
+		ft_memset.c\
+		ft_putnbr_fd.c\
+		ft_strdel.c\
+	  	ft_strncmp.c\
+		ft_atoi.c\
+		ft_islower.c\
+		ft_memchr.c\
+		ft_putchar.c\
+		ft_putstr.c\
+	  	ft_strdup.c\
+		ft_strncpy.c\
+		ft_bzero.c\
+		ft_isprint.c\
+		ft_memcmp.c\
+		ft_putchar_fd.c\
+	  	ft_putstr_fd.c\
+		ft_strequ.c\
+		ft_strnequ.c\
+		ft_isalnum.c\
+		ft_isspace.c\
+		ft_memcpy.c\
+	 	ft_putendl.c\
+		ft_strclr.c\
+		ft_striter.c\
+		ft_strnew.c\
+		ft_isalpha.c\
+		ft_isupper.c\
+	 	ft_memdel.c\
+		ft_putendl_fd.c\
+		ft_strcmp.c\
+		ft_striteri.c\
+		ft_tolower.c\
+		ft_strcat.c\
+	 	ft_strncat.c\
+		ft_strlcat.c\
+		ft_strchr.c\
+		ft_strrchr.c\
+		ft_strstr.c\
+		ft_strmap.c\
+	 	ft_strmapi.c\
+		ft_strnstr.c\
+		ft_strsub.c\
+		ft_strjoin.c\
+		ft_strtrim.c\
+	 	ft_itoa.c\
+		ft_wordcount.c\
+		ft_strsplit.c\
+		ft_lstnew.c\
+		ft_lstdelone.c\
+		ft_lstdel.c\
+	 	ft_lstadd.c\
+		ft_lstiter.c\
+		ft_lstmap.c\
+		ft_strclen.c\
+		ft_iscfound.c
 #ADD SOURCE FILES HERE ^^^
 OBJ := $(addprefix $(OBJ_DIR)/, $(SRC:%.c=%.o))
-################################################################################
-#								LIBRARIES
-################################################################################
-#NAME_DIR := $(LIBDIR)/{library}
-PRINTF_DIR := $(LIB_DIR)/ft_printf
-#ADD ADDITIONAL LIBRARIES HERE ^^^
-LIB_FLAG := -lftprintf
 ################################################################################
 #								COMPILER
 ################################################################################
@@ -61,56 +107,39 @@ CC := gcc $(CFLAGS)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@make all -C $(LIBFT_DIR)/
-	@echo "\033[35m\t\t[COMPILING] $@\033"
-	@$(CC) -o $@ -I $(INC_DIR) -L $(LIBFT_DIR)/ $(LIB_FLAG) $(OBJ)
-	@#COMPILE EXECUTABLE ^^^^^
-	@#ar rcs $(NAME).a $(OBJ) $(LIBFT_DIR)/obj/*.o^
-	@#COMPILE LIBRARY ^^^^^^^
-	@echo "\033[32m\t\t[COMPILED SUCCESSFULLY]\033"
+	@echo "\033[34m\n\t\t[LIBFT]\033[0m"
+	@echo "\033[35m\t\t[COMPILING] $@\033[0m"
+	ar rcs $(NAME) $(OBJ)
+	@echo "\033[32m\t\t[COMPILED SUCCESSFULLY]\033[0m"
+	@#echo "\007"
 	@#DON'T TOUCH ^^^
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	@echo "\033[36m\t\t[Building]\033[0m $@"
+	@#echo "\033[34m\t\t[LIBFT]\033[0m"
+	@#echo "\033[36m\t\t[Building]\033[0m $@"
 	@mkdir -p $(OBJ_DIR)
 	@$(CC) -I $(INC_DIR) -o $@ -c $<
-	@echo "\033[33m\t\t[SUCCESS]\033[0m"
+	@#echo "\033[33m\t\t[SUCCESS]\033[0m"
 	@#DON'T TOUCH ^^^
 
-clean: cleanlib
+clean:
+	@echo "\033[34m\t\t[LIBFT]\033[0m"
 	@echo "\033[31m\t\t[CLEANING]\t$(OBJ_DIR)\033[0m"
 	@rm -rf $(OBJ_DIR)
 	@#DON'T TOUCH ^^^
 
-cleanlib:
-	@echo "\033[31m\t\t[CLEANING]\t$(LIB_DIR)\033[0m"
-	@make clean -C $(PRINTF_DIR)
-	@#ADD ADDITIONAL LIBRARIES HERE ^^^
-
-fclean: clean fcleanlib
+fclean: clean
+	@echo "\033[34m\t\t[LIBFT]\033[0m"
 	@echo "\033[31m\t\t[FCLEAN]\t$(NAME)\033[0m"
 	@rm -f $(NAME)
 	@#ADD ADDITIONAL NAME FILES HERE ^^^
 
-fcleanlib:
-	@echo "\033[31m\t\t[FCLEAN]\t$(LIB_DIR)]\033[0m"
-	@make fclean -C $(PRINTF_DIR)
-	@#ADD ADDITIONAL LIBRARIES HERE ^^^
-
 re: fclean all
-
-workspace:
-	@echo "\033[36m\t\t[Building $@]\033[0m"
-	@mkdir -p $(INC_DIR)
-	@mkdir -p $(SRC_DIR)
-	@mkdir -p $(LIB_DIR)
-	@touch author
-	@echo $(AUTHOR) > author
 ################################################################################
 #								SPECIAL
 ################################################################################
 
-.PHONEY := all clean fclean re workspace
+.PHONEY := all clean fclean re
 #ADD PHONEY HERE ^^^
 
 #.SILENT:
