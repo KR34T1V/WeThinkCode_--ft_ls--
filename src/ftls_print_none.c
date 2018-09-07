@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 10:51:49 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/07 11:48:17 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/07 13:42:53 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,12 @@ void	ftls_print_none(t_lslink *l)
 	while (l->next)
 	{
 		tmp = l;
-		ft_printf("%s", l->name);
-		if (l->next->name != NULL)
-			ft_printf("\t");
+		if (l->name && l->name[0] != '.')
+		{
+			ft_printf("%s", l->name);
+			if (l->next->name != NULL)
+				ft_printf("\t");
+		}
 		l = l->next;
 	}
 }
