@@ -6,7 +6,7 @@
 #    By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/07 10:04:12 by cterblan          #+#    #+#              #
-#    Updated: 2018/09/07 13:45:11 by cterblan         ###   ########.fr        #
+#    Updated: 2018/09/07 15:12:08 by cterblan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,15 @@ SRC :=	ft_isdir.c\
 		ftls_print_none.c\
 		ftls_print_hidden.c\
 		ftls_flag_set.c\
+		ftls_get_name.c\
+		ftls_get_perm.c\
+		ftls_get_links.c\
+		ftls_get_owner.c\
+		ftls_get_group.c\
+		ftls_get_fsize.c\
+		ftls_get_time.c\
 		ftls_read_dir.c\
+		ftls_print.c\
 #ADD SOURCE FILES HERE ^^^
 OBJ := $(addprefix $(OBJ_DIR)/, $(SRC:%.c=%.o))
 ################################################################################

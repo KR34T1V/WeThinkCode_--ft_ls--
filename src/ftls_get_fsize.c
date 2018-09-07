@@ -1,44 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_struct.h                                        :+:      :+:    :+:   */
+/*   ftls_get_fsize.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/06 15:33:08 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/07 14:45:26 by cterblan         ###   ########.fr       */
+/*   Created: 2018/09/07 14:57:40 by cterblan          #+#    #+#             */
+/*   Updated: 2018/09/07 15:00:09 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_STRUCT_H
-# define FT_STRUCT_H
+#include "../inc/ft_ls.h"
 
-
-typedef struct		s_lsflags
+void	ftls_get_fsize(t_lslink *l)
 {
-	int				R;
-	int				a;
-	int				l;
-	int				r;
-	int				t;
-	int				u;
-	int				f;
-	int				g;
-	int				d;
-}					t_lsflags;
+	struct stat		*st = NULL;
 
-typedef struct		s_lslink
-{
-	int				block;
-	char			*name;
-	int				namelen;
-	char			*perm;
-	int				links;
-	char			*owner;
-	char			*group;
-	int				fsize;
-	char			*time;
-	struct s_lslink	*next;
-}					t_lslink;
-
-#endif
+	stat(l->name, st);
+	l->fsize = st->st_size;
+}

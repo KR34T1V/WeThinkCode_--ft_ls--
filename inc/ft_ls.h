@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 15:32:28 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/07 13:49:15 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/07 15:12:19 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,14 @@ void	ftls_flag_none(const char *path, t_lslink *l);
 void	ftls_print_none(t_lslink *l);
 void	ftls_print_hidden(t_lslink *l);
 void	ftls_flag_set();
+void	ftls_get_name(char *path, t_lslink *l);
+void	ftls_get_perm(t_lslink *l);
+void	ftls_get_links(t_lslink *l);
+void	ftls_get_owner(t_lslink *l);
+void	ftls_get_group(t_lslink *l);
+void	ftls_get_fsize(t_lslink *l);
+void	ftls_get_time(t_lslink *l);
 void	ftls_read_dir();
+void	ftls_print(t_lslink *l, t_lsflags *f);
 
 #endif

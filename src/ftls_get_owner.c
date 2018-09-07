@@ -1,44 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_struct.h                                        :+:      :+:    :+:   */
+/*   ftls_get_owner.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/06 15:33:08 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/07 14:45:26 by cterblan         ###   ########.fr       */
+/*   Created: 2018/09/07 14:52:38 by cterblan          #+#    #+#             */
+/*   Updated: 2018/09/07 14:55:16 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_STRUCT_H
-# define FT_STRUCT_H
+#include "../inc/ft_ls.h"
 
-
-typedef struct		s_lsflags
+void	ftls_get_owner(t_lslink *l)
 {
-	int				R;
-	int				a;
-	int				l;
-	int				r;
-	int				t;
-	int				u;
-	int				f;
-	int				g;
-	int				d;
-}					t_lsflags;
-
-typedef struct		s_lslink
-{
-	int				block;
-	char			*name;
-	int				namelen;
-	char			*perm;
-	int				links;
-	char			*owner;
-	char			*group;
-	int				fsize;
-	char			*time;
-	struct s_lslink	*next;
-}					t_lslink;
-
-#endif
+	struct stat		*st = NULL;
+	struct passwd	*pw = NULL;
+	
+	stat(l->name, st);
+	pw = getpwuid(st->st_uid);
+	l->owner = pw->pw_name;
+}

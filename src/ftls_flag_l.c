@@ -1,44 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_struct.h                                        :+:      :+:    :+:   */
+/*   ftls_flag_l.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/06 15:33:08 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/07 14:45:26 by cterblan         ###   ########.fr       */
+/*   Created: 2018/09/07 14:07:29 by cterblan          #+#    #+#             */
+/*   Updated: 2018/09/07 14:22:39 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_STRUCT_H
-# define FT_STRUCT_H
+#include "../inc/ft_ls.h"
 
-
-typedef struct		s_lsflags
+void	ftls_flag_l(const char *path, t_lslink *l)
 {
-	int				R;
-	int				a;
-	int				l;
-	int				r;
-	int				t;
-	int				u;
-	int				f;
-	int				g;
-	int				d;
-}					t_lsflags;
-
-typedef struct		s_lslink
-{
-	int				block;
-	char			*name;
-	int				namelen;
-	char			*perm;
-	int				links;
-	char			*owner;
-	char			*group;
-	int				fsize;
-	char			*time;
-	struct s_lslink	*next;
-}					t_lslink;
-
-#endif
+	DIR				*dir;
+	struct dirent	*ent;
+	struct stat		*st = NULL;
+	t_lslink		*tmp;
+	
+	if (ft_isdir(path))
+	{
+		dir = opendir(path);
+		tmp = l;
+		while ((ent = readdir(dir)) != NULL)
+		{
+			stat(ent->d_name, st);
+			tmp->name = ent->d_name;
+			tmp->next = (t_lslink *)ft_memalloc(sizeof(t_lslink));
+			tmp = tmp->next;
+		}
+}
