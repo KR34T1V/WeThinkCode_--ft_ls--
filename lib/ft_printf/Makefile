@@ -6,7 +6,7 @@
 #    By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/17 11:24:40 by cterblan          #+#    #+#              #
-#    Updated: 2018/08/25 15:48:08 by cterblan         ###   ########.fr        #
+#    Updated: 2018/09/07 10:10:08 by cterblan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -99,20 +99,20 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@make all -C $(LIBFT_DIR)/
-	@echo "\033[35m\t\t[COMPILING] $@\033"
+	@#echo "\033[35m\t\t[COMPILING] $@\033"
 	@#$(CC) -o $@ -I $(INC_DIR) -L $(LIBFT_DIR)/ $(LIB_FLAG) $(OBJ)
 	@#COMPILE EXECUTABLE ^^^^^^
 	@ar rcs $(NAME) $(OBJ) $(LIBFT_DIR)/obj/*.o
 	@#COMPILE LIBRARY ^^^^^^^
-	@echo "\033[32m\t\t[COMPILED SUCCESSFULLY]\033"
+	@#echo "\033[32m\t\t[COMPILED SUCCESSFULLY]\033"
 	@#DON'T TOUCH ^^^
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	@echo "\033[36m\t\t[Building]\033[0m $@"
+	@#echo "\033[36m\t\t[Building]\033[0m $@"
 	@#norminette $<
 	@mkdir -p $(OBJ_DIR)
 	@$(CC) -I $(INC_DIR) -o $@ -c $<
-	@echo "\033[33m\t\t[SUCCESS]\033[0m"
+	@#echo "\033[33m\t\t[SUCCESS]\033[0m"
 	@#DON'T TOUCH ^^^
 
 clean: cleanlib
@@ -151,7 +151,7 @@ workspace:
 .PHONEY := all clean fclean re workspace
 #ADD PHONEY HERE ^^^
 
-#.SILENT:
+.SILENT:
 #DON'T TOUCH ^^^
 
 .PRECIOUS := author

@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2018/07/17 11:24:40 by cterblan          #+#    #+#              #
-#    Updated: 2018/09/06 16:00:29 by cterblan         ###   ########.fr        #
+#    Created: 2018/09/07 10:04:12 by cterblan          #+#    #+#              #
+#    Updated: 2018/09/07 10:06:24 by cterblan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,9 +36,9 @@ LIB_DIR := lib
 SRC :=	ft_isdir.c\
 		ft_isreg.c\
 		ftls_main.c\
-		ftls_read_dir.c\
-		ftls_flag_set.c\
 		ftls_flag_none.c\
+		ftls_flag_set.c\
+		ftls_read_dir.c\
 #ADD SOURCE FILES HERE ^^^
 OBJ := $(addprefix $(OBJ_DIR)/, $(SRC:%.c=%.o))
 ################################################################################
@@ -61,11 +61,11 @@ CC := gcc $(CFLAGS)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@make all -C $(LIBFT_DIR)/
+	@make all -C $(PRINTF_DIR)/
 	@echo "\033[35m\t\t[COMPILING] $@\033"
-	@$(CC) -o $@ -I $(INC_DIR) -L $(LIBFT_DIR)/ $(LIB_FLAG) $(OBJ)
+	@$(CC) -o $@ -I $(INC_DIR) -L $(PRINTF_DIR)/ $(LIB_FLAG) $(OBJ)
 	@#COMPILE EXECUTABLE ^^^^^
-	@#ar rcs $(NAME).a $(OBJ) $(LIBFT_DIR)/obj/*.o^
+	@#ar rcs $(NAME).a $(OBJ) $(PRINTF_DIR)/obj/*.o
 	@#COMPILE LIBRARY ^^^^^^^
 	@echo "\033[32m\t\t[COMPILED SUCCESSFULLY]\033"
 	@#DON'T TOUCH ^^^
@@ -78,6 +78,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@#DON'T TOUCH ^^^
 
 clean: cleanlib
+	@echo "\033[33m\t\t[FT_LS]\033[0m"
 	@echo "\033[31m\t\t[CLEANING]\t$(OBJ_DIR)\033[0m"
 	@rm -rf $(OBJ_DIR)
 	@#DON'T TOUCH ^^^
@@ -88,12 +89,13 @@ cleanlib:
 	@#ADD ADDITIONAL LIBRARIES HERE ^^^
 
 fclean: clean fcleanlib
+	@echo "\033[33m\t\t[FT_LS]\033[0m"
 	@echo "\033[31m\t\t[FCLEAN]\t$(NAME)\033[0m"
 	@rm -f $(NAME)
 	@#ADD ADDITIONAL NAME FILES HERE ^^^
 
 fcleanlib:
-	@echo "\033[31m\t\t[FCLEAN]\t$(LIB_DIR)]\033[0m"
+	@echo "\033[31m\t\t[FCLEAN]\t$(LIB_DIR)\033[0m"
 	@make fclean -C $(PRINTF_DIR)
 	@#ADD ADDITIONAL LIBRARIES HERE ^^^
 
@@ -113,7 +115,7 @@ workspace:
 .PHONEY := all clean fclean re workspace
 #ADD PHONEY HERE ^^^
 
-#.SILENT:
+.SILENT:
 #DON'T TOUCH ^^^
 
 .PRECIOUS := author
