@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ftls_flag_none.c                                   :+:      :+:    :+:   */
+/*   ftls_print_none.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/06 15:47:32 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/07 11:32:45 by cterblan         ###   ########.fr       */
+/*   Created: 2018/09/07 10:51:49 by cterblan          #+#    #+#             */
+/*   Updated: 2018/09/07 11:48:17 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_ls.h"
 
-void	ftls_flag_none(const char *path, t_lslink *l)
+void	ftls_print_none(t_lslink *l)
 {
-	DIR				*dir;
-	struct dirent	*ent;
-	struct stat		*st = NULL;
-	t_lslink		*tmp;
-	
-	if (ft_isdir(path))
+	t_lslink *tmp;
+
+	while (l->next)
 	{
-		dir = opendir(path);
 		tmp = l;
-		while ((ent = readdir(dir)) != NULL)
-		{
-			stat(ent->d_name, st);
-			tmp->name = ent->d_name;
-			tmp->next = (t_lslink *)ft_memalloc(sizeof(t_lslink));
-			tmp = tmp->next;
-		}
-		ftls_print_none(l);
+		ft_printf("%s", l->name);
+		if (l->next->name != NULL)
+			ft_printf("\t");
+		l = l->next;
 	}
 }

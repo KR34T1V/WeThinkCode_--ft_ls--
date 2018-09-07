@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 15:32:28 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/07 09:57:40 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/07 10:56:42 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 int		ft_isdir(const char *path);
 int		ft_isreg(const char *path);
 void	ftls_flag_none(const char *path, t_lslink *l);
+void	ftls_print_none(t_lslink *l);
 void	ftls_flag_set();
 void	ftls_read_dir();
 
