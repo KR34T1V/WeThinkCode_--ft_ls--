@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ftls_get_blocks.c                                  :+:      :+:    :+:   */
+/*   ftls_get_block.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 14:48:35 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/10 15:17:21 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/10 16:08:31 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_ls.h"
 
-void	ftls_get_blocks(t_lslink *l)
+void	ftls_get_block(t_lslink *l)
 {
 	struct stat		st;
 	
