@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 14:48:35 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/07 14:50:52 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/10 15:17:21 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ftls_get_blocks(t_lslink *l)
 {
-	struct stat		*st = NULL;
+	struct stat		st;
 	
-	stat(l->name, st);
-	l->block = st->st_blocks;
+	stat(l->name, &st);
+	l->block = st.st_blocks;
 }
