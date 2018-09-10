@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ftls_print.c                                       :+:      :+:    :+:   */
+/*   ftls_get_all.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/07 15:10:54 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/10 14:20:06 by cterblan         ###   ########.fr       */
+/*   Created: 2018/09/10 14:44:26 by cterblan          #+#    #+#             */
+/*   Updated: 2018/09/10 14:54:17 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_ls.h"
 
-void	ftls_print(t_lslink *l, t_lsflags *f)
+void	ftls_get_all(char *path, t_lslink *l)
 {
-	/*SORT AND THEN PRINT ACCORDING TO THE FLAGS*/
-	if (f->a == 0)
-		ftls_print_none(f, l);
-	else if (f->a == 1)
-		ftls_print_hidden(f, l);
+	ftls_get_name(path, l);
+	//ftls_get_perm(l);
+	//ftls_get_links(l);
+	//ftls_get_owner(l);
+	//ftls_get_group(l);
+	//ftls_get_fsize(l);
+	//ftls_get_time(l);
 }

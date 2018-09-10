@@ -6,13 +6,13 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 15:47:32 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/07 14:35:42 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/10 14:00:32 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_ls.h"
 
-void	ftls_flag_none(const char *path, t_lslink *l)
+void	ftls_flag_none(const char *path, t_lsflags *f, t_lslink *l)
 {
 	DIR				*dir;
 	struct dirent	*ent;
@@ -28,6 +28,6 @@ void	ftls_flag_none(const char *path, t_lslink *l)
 			tmp->next = (t_lslink *)ft_memalloc(sizeof(t_lslink));
 			tmp = tmp->next;
 		}
-		ftls_print_none(l);
+		ftls_print_none(f, l);
 	}
 }
