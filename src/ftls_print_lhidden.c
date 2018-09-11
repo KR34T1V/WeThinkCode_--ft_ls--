@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 09:03:59 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/11 13:35:20 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/11 13:46:05 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ftls_print_lhidden(t_lsflags *f, t_lslink *l)
 {
 	t_lslink	*tmp;
 
-	if ((f->a == 1 || f->d == 1) && f->l == 1)
+	if ((f->a == 1 || f->d == 1) && (f->l == 1 || f->g == 1))
 	{
 		tmp = l;
 		tmp = l;

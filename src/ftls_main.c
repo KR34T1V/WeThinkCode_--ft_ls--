@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 15:39:12 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/10 14:57:25 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/11 13:43:36 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int		main(int ac, char **av)
 		if (av[i] && av[i][0] == '-')
 		{
 			ftls_flag_set(av[i], &f);
-			if (i == ac - 1 && f.l == 1)
+			if (i == ac - 1 && (f.l == 1 || f.g == 1))
 				ftls_get_all(".", l);
 			else
 				ftls_get_name(".", l);
