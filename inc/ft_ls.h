@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 15:32:28 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/11 12:03:16 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/11 15:38:32 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ void	ftls_get_group(t_lslink *l);
 void	ftls_get_fsize(t_lslink *l);
 void	ftls_get_time(t_lslink *l);
 void	ftls_read_dir();
+void	ftls_sort(t_lsflags *f, t_lslink *l);
+void	ftls_sort_name(/*t_lsflags *f, */t_lslink *l);
 void	ftls_print(t_lslink *l, t_lsflags *f);
 void	ftls_print_none(t_lsflags *f, t_lslink *l);
 void	ftls_print_hidden(t_lsflags *f, t_lslink *l);

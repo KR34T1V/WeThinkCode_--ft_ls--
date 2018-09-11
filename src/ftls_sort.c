@@ -1,34 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ftls_get_name.c                                    :+:      :+:    :+:   */
+/*   ftls_sort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/07 14:23:52 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/11 15:15:10 by cterblan         ###   ########.fr       */
+/*   Created: 2018/09/11 15:25:08 by cterblan          #+#    #+#             */
+/*   Updated: 2018/09/11 15:39:02 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_ls.h"
 
-void	ftls_get_name(char *path, t_lslink *l)
+void	ftls_sort(t_lsflags *f, t_lslink *l)
 {
-	DIR				*dir;
-	struct dirent	*ent;
-	t_lslink		*tmp;
-	
-	if (ft_isdir(path))
-	{
-		dir = opendir(path);
-		tmp = l;
-		while ((ent = readdir(dir)) != NULL)
-		{
-			tmp->name = ent->d_name;
-			tmp->namelen = ft_strlen(tmp->name);
-			tmp->next = (t_lslink *)ft_memalloc(sizeof(t_lslink));
-			tmp->next->prev = tmp;
-			tmp = tmp->next;
-		}
-	}
+	if (f->r == 0 && f->t == 0)
+		ftls_sort_name(l);
+	/*else if (f->r == 1 && f->t == 0)
+		ftls_rsort_name(l);*/
 }
