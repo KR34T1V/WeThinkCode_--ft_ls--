@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ftls_print_long.c                                  :+:      :+:    :+:   */
+/*   ftls_print_lhidden.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/10 15:59:22 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/11 09:27:42 by cterblan         ###   ########.fr       */
+/*   Created: 2018/09/11 09:03:59 by cterblan          #+#    #+#             */
+/*   Updated: 2018/09/11 09:28:24 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_ls.h"
 
-void	ftls_print_long(t_lsflags *f, t_lslink *l)
+void	ftls_print_lhidden(t_lsflags *f, t_lslink *l)
 {
 	t_lslink	*tmp;
 	int			total;
@@ -23,7 +23,7 @@ void	ftls_print_long(t_lsflags *f, t_lslink *l)
 		tmp = l;
 		while (tmp->next)
 		{
-			if (tmp->name && tmp->name[0] != '.')
+			if (tmp->name)
 				total += tmp->block;	
 			tmp = tmp->next;
 		}
@@ -31,7 +31,7 @@ void	ftls_print_long(t_lsflags *f, t_lslink *l)
 		tmp = l;
 		while (tmp->next)
 		{
-			if (tmp->name && tmp->name[0] != '.')
+			if (tmp->name)
 			{
 				ft_printf("%s ", tmp->perm);
 				ft_printf("%3i ", tmp->links);

@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 14:33:20 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/10 15:19:00 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/11 09:00:59 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,5 @@ void	ftls_get_perm(t_lslink *l)
 		tmp[8] = (S_IWOTH & st.st_mode) ? 'w' : '-';
 		tmp[9] = (S_IXOTH & st.st_mode) ? 'x' : '-';
 		l->perm = tmp;
-		free(tmp);
 }
+//FREE TMP!
