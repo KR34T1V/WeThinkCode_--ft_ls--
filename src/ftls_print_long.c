@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 15:59:22 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/11 11:49:42 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/11 13:32:46 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,6 @@ void	ftls_print_long(t_lsflags *f, t_lslink *l)
 				break ;
 		}
 	}
+	else if ((f->a == 1 || f->d == 1) && f->l == 1)
+				ftls_print_lhidden(f, l);
 }

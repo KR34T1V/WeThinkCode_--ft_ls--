@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 09:03:59 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/11 11:47:59 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/11 13:35:20 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,10 @@
 void	ftls_print_lhidden(t_lsflags *f, t_lslink *l)
 {
 	t_lslink	*tmp;
-	int			total;
 
-	total = 0;
-	if (f->a == 1 && f->d == 0 && f->g == 0 && f->l == 1)
+	if ((f->a == 1 || f->d == 1) && f->l == 1)
 	{
 		tmp = l;
-		while (tmp->next)
-		{
-			if (tmp->name)
-				total += tmp->block;	
-			tmp = tmp->next;
-		}
-		ft_printf("total %i\n", total);
 		tmp = l;
 		while (tmp->next)
 		{
@@ -42,6 +33,8 @@ void	ftls_print_lhidden(t_lsflags *f, t_lslink *l)
 				ft_printf("%s ", tmp->time);
 				ft_printf("%s\n", tmp->name);
 			}
+			if (f->d == 1)
+				break ;
 			tmp = tmp->next;
 		}
 	}
