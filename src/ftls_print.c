@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 15:10:54 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/11 11:29:24 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/11 12:01:22 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,8 @@
 void	ftls_print(t_lslink *l, t_lsflags *f)
 {
 	/*SORT AND THEN PRINT ACCORDING TO THE FLAGS*/
-	if (f->a == 0 && f->l == 0 && f->d == 0)
+	if (f->l == 0 && f->g == 0)
 		ftls_print_none(f, l);
-	else if (f->a == 1 && f->l == 0 && f->d == 0)
-		ftls_print_hidden(f, l);
-	else if (f->l == 1 && f->a == 0 && f->d == 0)
+	else if (f->l == 1 && f->g == 0)
 		ftls_print_long(f, l);
-	else if (f->l == 1 && f->a == 1 && f->d == 0)
-		ftls_print_lhidden(f, l);
-	else if (f->d == 1 && f->l == 0)
-		ftls_print_direct(f, l);
-	else if (f->d == 1 && f->l == 1)
-		ftls_print_ldirect(f, l);
 }

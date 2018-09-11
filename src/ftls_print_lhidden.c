@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 09:03:59 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/11 09:56:53 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/11 11:47:59 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ void	ftls_print_lhidden(t_lsflags *f, t_lslink *l)
 			{
 				ft_printf("%s ", tmp->perm);
 				ft_printf("%3i ", tmp->links);
-				ft_printf("%s  ", tmp->owner);
+				if (f->g != 1)
+					ft_printf("%s  ", tmp->owner);
 				ft_printf("%s ", tmp->group);
 				ft_printf("%6i", tmp->fsize);
 				ft_printf("%s ", tmp->time);
