@@ -6,7 +6,7 @@
 #    By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/07 10:04:12 by cterblan          #+#    #+#              #
-#    Updated: 2018/09/11 10:21:18 by cterblan         ###   ########.fr        #
+#    Updated: 2018/09/11 11:28:29 by cterblan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,6 +55,7 @@ SRC :=	ft_isdir.c\
 		ftls_print_long.c\
 		ftls_print_lhidden.c\
 		ftls_print_direct.c\
+		ftls_print_ldirect.c\
 #ADD SOURCE FILES HERE ^^^
 OBJ := $(addprefix $(OBJ_DIR)/, $(SRC:%.c=%.o))
 ################################################################################

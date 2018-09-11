@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 15:10:54 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/11 10:37:53 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/11 11:29:24 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,6 @@ void	ftls_print(t_lslink *l, t_lsflags *f)
 		ftls_print_lhidden(f, l);
 	else if (f->d == 1 && f->l == 0)
 		ftls_print_direct(f, l);
+	else if (f->d == 1 && f->l == 1)
+		ftls_print_ldirect(f, l);
 }
