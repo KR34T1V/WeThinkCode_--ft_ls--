@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 15:33:08 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/11 15:14:48 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/12 09:59:52 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct		s_lslink
 	char			*group;
 	int				fsize;
 	char			*time;
+	unsigned int	ntime;
 	struct s_lslink	*next;
 	struct s_lslink *prev;
 }					t_lslink;

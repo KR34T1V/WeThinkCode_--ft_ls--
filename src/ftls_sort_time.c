@@ -1,33 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ftls_get_time.c                                    :+:      :+:    :+:   */
+/*   ftls_sort_time.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/07 15:00:24 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/12 09:59:59 by cterblan         ###   ########.fr       */
+/*   Created: 2018/09/11 13:50:22 by cterblan          #+#    #+#             */
+/*   Updated: 2018/09/12 10:03:14 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_ls.h"
 
-void	ftls_get_time(t_lslink *l)
-{
-	struct stat		st;
-	char			*tmp;
-	char			*month;
-	char			*date;
-	char			*tim;
 
-	stat(l->name, &st);
-	l->ntime = st.st_mtime;
-	tmp = ft_strsub(ctime(&st.st_ctimespec.tv_sec), 4, 12);
-	month = ft_strsub(tmp, 0, 3);
-	date = ft_strsub(tmp, 3, 4);
-	tim = ft_strsub(tmp, 6, 8);
-	free(tmp);
-	tmp = ft_strjoin(date, month);
-	l->time = ft_strjoin(tmp, tim);
-	free(tmp);
+
+void	ftls_sort_time(t_lslink **l)
+{
+	t_lslink	*slow;
+	t_lslink	*fast;
+	int			swap;
+
+	swap = 1;
+	while (swap == 1)
+	{
+		swap = 0;
+		slow = *l;
+		while (slow && slow->next)
+		{
+			fast = slow;
+			while (fast->name && fast->next->name)
+			{
+				if (fast->ntime < fast->next->ntime)
+				{
+					ftls_sort_switch(l, fast);
+					swap = 1;
+				}
+					fast = fast->next;
+			}
+			slow = slow->next;
+		}
+	}
 }

@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ftls_get_time.c                                    :+:      :+:    :+:   */
+/*   ftls_sort_switch.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/07 15:00:24 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/12 09:59:59 by cterblan         ###   ########.fr       */
+/*   Created: 2018/09/12 09:42:30 by cterblan          #+#    #+#             */
+/*   Updated: 2018/09/12 09:48:49 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_ls.h"
 
-void	ftls_get_time(t_lslink *l)
+void    ftls_sort_switch(t_lslink **head, t_lslink *node)
 {
-	struct stat		st;
-	char			*tmp;
-	char			*month;
-	char			*date;
-	char			*tim;
+    t_lslink *prev;
+    t_lslink *next;
+    t_lslink *tmp;
 
-	stat(l->name, &st);
-	l->ntime = st.st_mtime;
-	tmp = ft_strsub(ctime(&st.st_ctimespec.tv_sec), 4, 12);
-	month = ft_strsub(tmp, 0, 3);
-	date = ft_strsub(tmp, 3, 4);
-	tim = ft_strsub(tmp, 6, 8);
-	free(tmp);
-	tmp = ft_strjoin(date, month);
-	l->time = ft_strjoin(tmp, tim);
-	free(tmp);
+    prev = node->prev;
+    next = node->next;
+    tmp = next->next;
+    
+    if (!prev)
+        *head = next;
+    else
+        prev->next = next;
+    if (tmp)
+        tmp->prev = node;
+    
+    next->next = node;
+    next->prev = prev;
+    node->prev = next;
+    node->next = tmp;
 }

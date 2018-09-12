@@ -6,7 +6,7 @@
 #    By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/07 10:04:12 by cterblan          #+#    #+#              #
-#    Updated: 2018/09/11 15:38:26 by cterblan         ###   ########.fr        #
+#    Updated: 2018/09/12 10:02:57 by cterblan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,9 @@ SRC :=	ft_isdir.c\
 		ftls_get_time.c\
 		ftls_read_dir.c\
 		ftls_sort.c\
+		ftls_sort_switch.c\
 		ftls_sort_name.c\
+		ftls_sort_time.c\
 		ftls_print.c\
 		ftls_print_none.c\
 		ftls_print_hidden.c\
