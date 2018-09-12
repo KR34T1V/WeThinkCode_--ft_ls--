@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 15:39:12 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/12 11:50:23 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/12 16:00:48 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int		main(int ac, char **av)
 	int			arg;
 	t_lslink	*l = NULL;
 	t_lsflags	f;
+	char		*path;
 
 	i = 1;
 	arg = 0;
@@ -36,7 +37,8 @@ int		main(int ac, char **av)
 		else if (av[i] && ft_isdir(ft_strjoin("./", av[i])))
 		{
 			//ft_printf("%s\n", ft_strjoin("./", av[i]));
-			ftls_get_all(ft_strjoin("./", av[i]), l);
+			path = ftls_get_path(av[i]);
+			ftls_get_all(path, l);
 		}
 		else
 			ft_quit("ERROR: No such file or directory!");

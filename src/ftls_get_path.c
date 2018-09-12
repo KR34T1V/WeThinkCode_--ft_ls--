@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ftls_get_all.c                                     :+:      :+:    :+:   */
+/*   ftls_get_path.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/10 14:44:26 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/12 16:01:09 by cterblan         ###   ########.fr       */
+/*   Created: 2018/09/12 15:27:11 by cterblan          #+#    #+#             */
+/*   Updated: 2018/09/12 15:47:00 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_ls.h"
 
-void	ftls_get_all(char *path, t_lslink *l)
+char	*ftls_get_path(char *path)
 {
-	t_lslink *tmp;
+	int		i;
 
-	tmp = l;
-	ftls_get_name(path, l);
-	while (tmp->next)
-	{
-		ftls_get_perm(tmp);
-		ftls_get_links(tmp);
-		ftls_get_owner(tmp);
-		ftls_get_group(tmp);
-		ftls_get_fsize(tmp);
-		ftls_get_time(path, tmp);
-		ftls_get_block(tmp);
-		tmp = tmp->next;
-	}
+	i = ft_strlen(path);
+	if (ft_isdir(path))
+		if (path[i - 1] != '/')
+			path = ft_strjoin(path, "/");
+	return(path);
 }

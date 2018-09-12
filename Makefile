@@ -6,7 +6,7 @@
 #    By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/07 10:04:12 by cterblan          #+#    #+#              #
-#    Updated: 2018/09/12 10:50:41 by cterblan         ###   ########.fr        #
+#    Updated: 2018/09/12 16:02:39 by cterblan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,7 @@ SRC :=	ft_isdir.c\
 		ftls_get_block.c\
 		ftls_get_blocktotal.c\
 		ftls_get_name.c\
+		ftls_get_path.c\
 		ftls_get_perm.c\
 		ftls_get_links.c\
 		ftls_get_owner.c\

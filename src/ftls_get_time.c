@@ -6,13 +6,13 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 15:00:24 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/12 09:59:59 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/12 16:02:12 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_ls.h"
 
-void	ftls_get_time(t_lslink *l)
+void	ftls_get_time(char *path, t_lslink *l)
 {
 	struct stat		st;
 	char			*tmp;
@@ -20,7 +20,7 @@ void	ftls_get_time(t_lslink *l)
 	char			*date;
 	char			*tim;
 
-	stat(l->name, &st);
+	stat(ft_strjoin(path, l->name), &st);
 	l->ntime = st.st_mtime;
 	tmp = ft_strsub(ctime(&st.st_ctimespec.tv_sec), 4, 12);
 	month = ft_strsub(tmp, 0, 3);
