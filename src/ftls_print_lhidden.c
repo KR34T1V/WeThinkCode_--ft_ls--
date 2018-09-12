@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 09:03:59 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/12 10:09:54 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/12 10:28:17 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,7 @@ void	ftls_print_lhidden(t_lsflags *f, t_lslink *l)
 	if ((f->a == 1 || f->d == 1) && (f->l == 1 || f->g == 1))
 	{
 		tmp = l;
-		while (tmp->next)
-		{
-			if (tmp->name && tmp->name[0] != '.')
-				total += tmp->block;	
-			tmp = tmp->next;
-		}
-		tmp = l;
+		total = ftls_get_blocktotal(l, f);
 		ft_printf("total %i\n", total);
 		while (tmp->next)
 		{
