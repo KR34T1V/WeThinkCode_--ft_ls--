@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ftls_sort_time.c                                   :+:      :+:    :+:   */
+/*   ftls_rsort_name.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 13:50:22 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/12 10:47:03 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/12 10:49:53 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_ls.h"
 
-void	ftls_sort_time(t_lslink **l)
+
+
+void	ftls_rsort_name(t_lslink **l)
 {
 	t_lslink	*slow;
 	t_lslink	*fast;
@@ -28,7 +30,7 @@ void	ftls_sort_time(t_lslink **l)
 			fast = slow;
 			while (fast->name && fast->next->name)
 			{
-				if (fast->ntime < fast->next->ntime)
+				if (ft_strcmp(fast->name, fast->next->name) < 0)
 				{
 					ftls_sort_switch(l, fast);
 					swap = 1;
