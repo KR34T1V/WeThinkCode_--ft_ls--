@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 14:44:26 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/12 16:01:09 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/12 16:23:56 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ void	ftls_get_all(char *path, t_lslink *l)
 	ftls_get_name(path, l);
 	while (tmp->next)
 	{
-		ftls_get_perm(tmp);
-		ftls_get_links(tmp);
-		ftls_get_owner(tmp);
-		ftls_get_group(tmp);
-		ftls_get_fsize(tmp);
+		ftls_get_perm(path, tmp);
+		ftls_get_links(path, tmp);
+		ftls_get_owner(path, tmp);
+		ftls_get_group(path, tmp);
+		ftls_get_fsize(path, tmp);
 		ftls_get_time(path, tmp);
-		ftls_get_block(tmp);
+		ftls_get_block(path, tmp);
 		tmp = tmp->next;
 	}
 }

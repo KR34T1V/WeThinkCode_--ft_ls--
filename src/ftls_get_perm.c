@@ -6,18 +6,18 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 14:33:20 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/11 09:00:59 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/12 16:23:26 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_ls.h"
 
-void	ftls_get_perm(t_lslink *l)
+void	ftls_get_perm(char *path, t_lslink *l)
 {
 	struct stat		st;
 	char			*tmp;
 
-	stat(l->name, &st);
+	stat(ft_strjoin(path, l->name), &st);
 		tmp = ft_strnew(10);
 		tmp[0] = (S_ISDIR(st.st_mode)) ? 'd' : '-';
 		tmp[1] = (S_IRUSR & st.st_mode) ? 'r' : '-';
