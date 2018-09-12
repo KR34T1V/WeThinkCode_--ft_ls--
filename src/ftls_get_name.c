@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 14:23:52 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/11 15:15:10 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/12 11:58:32 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ftls_get_name(char *path, t_lslink *l)
 		tmp = l;
 		while ((ent = readdir(dir)) != NULL)
 		{
-			tmp->name = ent->d_name;
+			tmp->name = ft_strdup(ent->d_name);
 			tmp->namelen = ft_strlen(tmp->name);
 			tmp->next = (t_lslink *)ft_memalloc(sizeof(t_lslink));
 			tmp->next->prev = tmp;

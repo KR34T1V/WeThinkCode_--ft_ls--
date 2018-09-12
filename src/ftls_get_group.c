@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 14:55:30 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/10 15:17:45 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/12 11:57:36 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@ void	ftls_get_group(t_lslink *l)
 	
 	stat(l->name, &st);
 	gr = getgrgid(st.st_gid);
-	l->group = gr->gr_name;
+	l->group = ft_strdup(gr->gr_name);
 }
