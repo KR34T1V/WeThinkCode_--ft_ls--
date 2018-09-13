@@ -6,7 +6,7 @@
 #    By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/07 10:04:12 by cterblan          #+#    #+#              #
-#    Updated: 2018/09/13 12:59:57 by cterblan         ###   ########.fr        #
+#    Updated: 2018/09/13 14:57:25 by cterblan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,6 @@ SRC :=	ft_isdir.c\
 		ftls_recall.c\
 		ftls_read_dir.c\
 		ftls_main.c\
-		ftls_flag_none.c\
 		ftls_flag_rset.c\
 		ftls_flag_set.c\
 		ftls_link_add.c\

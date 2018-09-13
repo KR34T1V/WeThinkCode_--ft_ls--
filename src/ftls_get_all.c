@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 14:44:26 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/13 13:38:02 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/13 15:03:18 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ static void	ftls_gets_file(char *path, t_lslink *l)
 	if (!(tmp))
 		tmp = ftls_link_add(prev);
 	l->name = ft_strdup(path);
-	ft_printf("NAME\n|%s|\n", tmp->name);
 	l->namelen = ft_strlen(l->name);
 	ftls_get_perm(path, tmp);
 	ftls_get_links(path, tmp);
