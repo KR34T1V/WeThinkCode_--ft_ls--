@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/13 09:58:51 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/13 11:28:45 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/13 12:45:39 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	ftls_read_dir(char *path, t_lslink **l, t_lsflags *f)
 	char	*tmp;
 
 	*l = (t_lslink *)ft_memalloc(sizeof(t_lslink));
-	if (ft_isdir(path))
 		ftls_get_all(path, *l);
 	if (f->multi == 1 && ft_isdir(path))
 	{

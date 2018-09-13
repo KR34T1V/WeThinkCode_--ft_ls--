@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 15:00:24 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/12 16:02:12 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/13 12:06:22 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ void	ftls_get_time(char *path, t_lslink *l)
 	char			*date;
 	char			*tim;
 
-	stat(ft_strjoin(path, l->name), &st);
+	if(ft_isdir(path))
+		stat(ft_strjoin(path, l->name), &st);
+	else if (!(ft_isdir(path)))
+		stat(path, &st);
 	l->ntime = st.st_mtime;
 	tmp = ft_strsub(ctime(&st.st_ctimespec.tv_sec), 4, 12);
 	month = ft_strsub(tmp, 0, 3);

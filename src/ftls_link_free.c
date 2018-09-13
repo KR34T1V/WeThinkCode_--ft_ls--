@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/13 10:44:34 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/13 10:52:26 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/13 12:42:22 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	ftls_link_free(t_lslink **l)
 	tmp = *l;
 	while (tmp)
 	{
+		tmp->dir = 0;
 		next = tmp->next;
 		tmp->block = 0;
 		free(tmp->name);

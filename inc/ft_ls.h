@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 15:32:28 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/13 10:50:27 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/13 12:26:12 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <uuid/uuid.h>
+# include <errno.h>
+# include <string.h>
 
 int			ft_isdir(const char *path);
 int			ft_isreg(const char *path);
