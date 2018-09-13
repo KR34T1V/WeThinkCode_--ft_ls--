@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 14:44:26 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/13 06:59:58 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/13 10:24:49 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,29 @@
 
 void	ftls_get_all(char *path, t_lslink *l)
 {
-	t_lslink *tmp;
+	DIR				*dir;
+	struct dirent	*ent;
+	t_lslink		*tmp;
+	t_lslink		*prev;
 
-	tmp = l;
-	ftls_get_name(path, l);
-	while (tmp)
+	if (ft_isdir(path))
 	{
-		ftls_get_perm(path, tmp);
-		ftls_get_links(path, tmp);
-		ftls_get_owner(path, tmp);
-		ftls_get_group(path, tmp);
-		ftls_get_fsize(path, tmp);
-		ftls_get_time(path, tmp);
-		ftls_get_block(path, tmp);
-		tmp = tmp->next;
+		dir = opendir(path);
+		tmp = l;
+		while ((ent = readdir(dir)) != NULL)
+		{
+			if (!(tmp))
+				tmp = ftls_add_link(prev);
+			ftls_get_name(tmp, ent);
+			ftls_get_perm(path, tmp);
+			ftls_get_links(path, tmp);
+			ftls_get_owner(path, tmp);
+			ftls_get_group(path, tmp);
+			ftls_get_fsize(path, tmp);
+			ftls_get_time(path, tmp);
+			ftls_get_block(path, tmp);
+			prev = tmp;
+			tmp = tmp->next;
+		}
 	}
 }

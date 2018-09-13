@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ftls_get_path.c                                    :+:      :+:    :+:   */
+/*   ftls_add_link.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/12 15:27:11 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/13 09:51:04 by cterblan         ###   ########.fr       */
+/*   Created: 2018/09/13 09:33:25 by cterblan          #+#    #+#             */
+/*   Updated: 2018/09/13 10:17:56 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_ls.h"
 
-char	*ftls_get_path(char *path)
+t_lslink	*ftls_add_link(t_lslink *l)
 {
-	int		i;
+	t_lslink		*tmp = NULL;
 
-	i = ft_strlen(path);
-	if (ft_isdir(path))
+	if (l)
 	{
-		if (path[i - 1] != '/')
-			path = ft_strjoin(path, "/");
+		if (!tmp)
+			tmp = (t_lslink *)ft_memalloc(sizeof(t_lslink));
+		tmp->prev = l;
+		l->next = tmp;
+		
 	}
-	return(path);
+	return(tmp);
 }

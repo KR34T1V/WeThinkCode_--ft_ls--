@@ -6,7 +6,7 @@
 #    By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/07 10:04:12 by cterblan          #+#    #+#              #
-#    Updated: 2018/09/13 07:32:20 by cterblan         ###   ########.fr        #
+#    Updated: 2018/09/13 10:14:35 by cterblan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,10 +35,12 @@ LIB_DIR := lib
 #SRC:= ft_function.c
 SRC :=	ft_isdir.c\
 		ft_isreg.c\
+		ftls_read_dir.c\
 		ftls_main.c\
 		ftls_flag_none.c\
 		ftls_flag_rset.c\
 		ftls_flag_set.c\
+		ftls_add_link.c\
 		ftls_get_all.c\
 		ftls_get_block.c\
 		ftls_get_blocktotal.c\
