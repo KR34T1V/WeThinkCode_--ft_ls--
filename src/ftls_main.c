@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 15:39:12 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/13 07:22:32 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/13 07:32:43 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,7 @@ int		main(int ac, char **av)
 	l = (t_lslink *)ft_memalloc(sizeof(t_lslink));
 	ftls_flag_rset(&f);
 	if (ac == 1)
-	{
 		ftls_get_name("./", l);
-		ft_printf("%x\t%x\n", l, l->next);
-	}
 	else while (i < ac)
 	{
 		if (i == 1 && av[i] && av[i][0] == '-')
