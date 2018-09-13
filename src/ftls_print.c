@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 15:10:54 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/13 13:17:50 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/13 15:04:18 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,5 @@ void	ftls_print(t_lslink *l, t_lsflags *f)
 		ftls_print_none(f, l);
 	else if (f->l == 1 || f->g == 1)
 		ftls_print_long(f, l);
+	sleep(30);
 }
