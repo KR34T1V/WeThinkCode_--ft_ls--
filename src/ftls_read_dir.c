@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/13 09:58:51 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/13 13:25:08 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/13 18:33:06 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,5 @@ void	ftls_read_dir(char *path, t_lsflags *f)
 	if (f->R == 1 && f->d == 0)
 		ftls_recall(path, l, f);
 	ftls_link_free(&l);
+	sleep(30);
 }

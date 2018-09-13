@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/13 10:44:34 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/13 12:42:22 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/13 18:18:26 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,22 +20,22 @@ void	ftls_link_free(t_lslink **l)
 	tmp = *l;
 	while (tmp)
 	{
-		tmp->dir = 0;
-		next = tmp->next;
-		tmp->block = 0;
-		free(tmp->name);
-		tmp->namelen = 0;
-		free(tmp->perm);
-		tmp->links = 0;
-		free(tmp->owner);
-		free(tmp->group);
-		tmp->fsize = 0;
-		free(tmp->time);
-		tmp->ntime = 0;
-		tmp->prev = NULL;
-		tmp->next = NULL;
-		tmp = next;
+		next = tmp;
+		tmp = tmp->next;
+		next->dir = 0;
+		next->block = 0;
+		ft_strdel(&next->name);
+		next->namelen = 0;
+		ft_strdel(&next->perm);
+		next->links = 0;
+		ft_strdel(&next->owner);
+		ft_strdel(&next->group);
+		next->fsize = 0;
+		ft_strdel(&next->time);
+		next->ntime = 0;
+		next->next = NULL;
+		next->prev = NULL;
+		free(next);
 	}
-	free(*l);
 	l = NULL;
 }

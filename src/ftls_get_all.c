@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 14:44:26 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/13 15:03:18 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/13 18:28:36 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,5 @@ void		ftls_get_all(char *path, t_lslink *l)
 		l->dir = 1;
 		ftls_gets_dir(path, l, dir);
 	}
+	closedir(dir);
 }

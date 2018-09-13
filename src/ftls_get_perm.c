@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 14:33:20 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/13 12:06:17 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/13 15:12:41 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,13 @@ void	ftls_get_perm(char *path, t_lslink *l)
 {
 	struct stat		st;
 	char			*tmp;
+	char			*fre;
 
-	if(ft_isdir(path))
-		stat(ft_strjoin(path, l->name), &st);
+	if (ft_isdir(path))
+	{
+		stat(fre = ft_strjoin(path, l->name), &st);
+		free (fre);
+	}
 	else if (!(ft_isdir(path)))
 		stat(path, &st);
 		tmp = ft_strnew(10);

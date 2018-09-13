@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/13 09:33:25 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/13 10:43:22 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/13 17:47:41 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ t_lslink	*ftls_link_add(t_lslink *l)
 
 	if (l)
 	{
+		tmp = l->next;
 		if (!tmp)
 			tmp = (t_lslink *)ft_memalloc(sizeof(t_lslink));
 		tmp->prev = l;
 		l->next = tmp;
-		
 	}
 	return(tmp);
 }

@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 15:00:24 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/13 12:06:22 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/13 18:24:01 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,29 @@ void	ftls_get_time(char *path, t_lslink *l)
 {
 	struct stat		st;
 	char			*tmp;
-	char			*month;
-	char			*date;
-	char			*tim;
+	char			*fre;
+	char			*fre2;
+	char			*fre3;
+	char			*keepme;
 
-	if(ft_isdir(path))
-		stat(ft_strjoin(path, l->name), &st);
+	if (ft_isdir(path))
+	{
+		stat(fre = ft_strjoin(path, l->name), &st);
+		free(fre);
+	}
 	else if (!(ft_isdir(path)))
 		stat(path, &st);
 	l->ntime = st.st_mtime;
-	tmp = ft_strsub(ctime(&st.st_ctimespec.tv_sec), 4, 12);
-	month = ft_strsub(tmp, 0, 3);
-	date = ft_strsub(tmp, 3, 4);
-	tim = ft_strsub(tmp, 6, 8);
+	keepme = ctime(&st.st_ctimespec.tv_sec);
+	tmp = ft_strsub(keepme, 4, 12);
+	fre = ft_strsub(tmp, 0, 3);
+	fre2 = ft_strsub(tmp, 3, 4);
+	fre3 = ft_strjoin(fre2, fre);
+	free(fre);
+	free(fre2);
+	fre = ft_strsub(tmp, 6, 8);
 	free(tmp);
-	tmp = ft_strjoin(date, month);
-	l->time = ft_strjoin(tmp, tim);
-	free(tmp);
+	l->time = ft_strjoin(fre3, fre);
+	free(fre3);
+	free(fre);
 }

@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 14:51:21 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/13 12:06:02 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/13 15:12:28 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,13 @@
 void	ftls_get_links(char *path, t_lslink *l)
 {
 	struct stat		st;
-	
-	if(ft_isdir(path))
-		stat(ft_strjoin(path, l->name), &st);
+	char			*fre;
+
+	if (ft_isdir(path))
+	{
+		stat(fre = ft_strjoin(path, l->name), &st);
+		free (fre);
+	}
 	else if (!(ft_isdir(path)))
 		stat(path, &st);
 	l->links = st.st_nlink;
