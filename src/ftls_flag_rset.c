@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 13:53:00 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/10 14:03:00 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/13 11:18:35 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ftls_flag_rset(t_lsflags *f)
 {
+	f->flags = 0;
+	f->multi = 0;
 	f->R = 0;
 	f->a = 0;
 	f->l = 0;

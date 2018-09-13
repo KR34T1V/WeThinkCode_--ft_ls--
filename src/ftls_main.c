@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 15:39:12 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/13 10:39:55 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/13 11:23:49 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,10 @@ int		main(int ac, char **av)
 			if (ac == 2)
 				ftls_read_dir("./", &l, &f);
 		}
-		else if (av[i])
+		else if (av[i] && av[i][0] != '-')
 		{
-			f.multi = 1;
+			if ((ac > 2 && f.flags == 0 ) || (f.flags == 1 && ac > 3))
+				f.multi = 1;
 			path = ftls_get_path(av[i]);
 			ftls_read_dir(path, &l, &f);
 		}

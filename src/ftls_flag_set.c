@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 15:48:10 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/12 10:56:25 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/13 11:18:57 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,10 @@ void	ftls_flag_set(char *str, t_lsflags *f)
 	while (str[i] != '\0')
 	{
 		if (ft_iscfound(LSVALID, str[i]))
+		{
 			ftls_flag_toggle(str[i], f);
+			f->flags = 1;
+		}
 		else
 			ft_quit("\nERROR: Invalid Flag!");
 		i++;
