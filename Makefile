@@ -6,7 +6,7 @@
 #    By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/07 10:04:12 by cterblan          #+#    #+#              #
-#    Updated: 2018/09/13 10:42:39 by cterblan         ###   ########.fr        #
+#    Updated: 2018/09/13 10:50:47 by cterblan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,7 @@ SRC :=	ft_isdir.c\
 		ftls_flag_rset.c\
 		ftls_flag_set.c\
 		ftls_link_add.c\
+		ftls_link_free.c\
 		ftls_get_all.c\
 		ftls_get_block.c\
 		ftls_get_blocktotal.c\

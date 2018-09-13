@@ -1,29 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ftls_read_dir.c                                    :+:      :+:    :+:   */
+/*   ftls_link_free.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/13 09:58:51 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/13 10:51:14 by cterblan         ###   ########.fr       */
+/*   Created: 2018/09/13 10:44:34 by cterblan          #+#    #+#             */
+/*   Updated: 2018/09/13 10:52:26 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_ls.h"
 
-void	ftls_read_dir(char *path, t_lslink **l, t_lsflags *f)
+void	ftls_link_free(t_lslink **l)
 {
-	char	*tmp;
+	t_lslink	*tmp;
+	t_lslink	*next;
 
-	*l = (t_lslink *)ft_memalloc(sizeof(t_lslink));
-	if (ft_isdir(path))
-		ftls_get_all(path, *l);
-	if (f->multi == 1)
+	tmp = *l;
+	while (tmp)
 	{
-		ft_printf("\n%s:\n",(tmp = ft_strsub(path,0,(ft_strlen(path) - 1))));
-		free(tmp);
+		next = tmp->next;
+		tmp->block = 0;
+		free(tmp->name);
+		tmp->namelen = 0;
+		free(tmp->perm);
+		tmp->links = 0;
+		free(tmp->owner);
+		free(tmp->group);
+		tmp->fsize = 0;
+		free(tmp->time);
+		tmp->ntime = 0;
+		tmp->prev = NULL;
+		tmp->next = NULL;
+		tmp = next;
 	}
-	ftls_print(*l, f);
-	ftls_link_free(l);
+	free(*l);
+	l = NULL;
 }
