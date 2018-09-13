@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ftls_print.c                                       :+:      :+:    :+:   */
+/*   ftls_recall.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/07 15:10:54 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/13 13:17:50 by cterblan         ###   ########.fr       */
+/*   Created: 2018/09/13 12:50:23 by cterblan          #+#    #+#             */
+/*   Updated: 2018/09/13 13:07:33 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_ls.h"
 
-void	ftls_print(t_lslink *l, t_lsflags *f)
+void	ftls_recall(char *path, t_lslink *l, t_lsflags *f)
 {
-	/*SORT AND THEN PRINT ACCORDING TO THE FLAGS*/
-	if (f->f == 0)
-		ftls_sort(f, &l);
-	if (f->l == 0 && f->g == 0)
-		ftls_print_none(f, l);
-	else if (f->l == 1 || f->g == 1)
-		ftls_print_long(f, l);
+	t_lslink *tmp;
+
+	tmp = l;
+	while (tmp)
+	{
+		if (ft_isdir(tmp->name) && (0 != ft_strcmp("..", tmp->name) &&
+			0 != ft_strcmp(".", tmp->name)))
+			ftls_read_dir(ft_strjoin(path, tmp->name), f);
+		tmp = tmp->next;
+	}
+	f = NULL;
 }

@@ -6,7 +6,7 @@
 #    By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/07 10:04:12 by cterblan          #+#    #+#              #
-#    Updated: 2018/09/13 10:50:47 by cterblan         ###   ########.fr        #
+#    Updated: 2018/09/13 12:59:57 by cterblan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ LIB_DIR := lib
 #SRC:= ft_function.c
 SRC :=	ft_isdir.c\
 		ft_isreg.c\
+		ftls_recall.c\
 		ftls_read_dir.c\
 		ftls_main.c\
 		ftls_flag_none.c\
