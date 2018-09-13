@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 15:39:12 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/13 10:02:22 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/13 10:39:55 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,33 +15,30 @@
 int		main(int ac, char **av)
 {
 	int 		i;
-	int			arg;
 	t_lslink	*l = NULL;
 	t_lsflags	f;
 	char		*path;
 
 	i = 1;
-	arg = 0;
-	l = (t_lslink *)ft_memalloc(sizeof(t_lslink));
 	ftls_flag_rset(&f);
 	if (ac == 1)
-		ftls_read_dir("./", l);
+		ftls_read_dir("./", &l, &f);
 	else while (i < ac)
 	{
 		if (i == 1 && av[i] && av[i][0] == '-')
 		{
 			ftls_flag_set(av[i], &f);
 			if (ac == 2)
-				ftls_read_dir("./", l);
+				ftls_read_dir("./", &l, &f);
 		}
 		else if (av[i])
 		{
+			f.multi = 1;
 			path = ftls_get_path(av[i]);
-			ftls_read_dir(path, l);
+			ftls_read_dir(path, &l, &f);
 		}
 		else
 			ft_quit("ERROR: No such file or directory!");
 		i++;
 	}
-	ftls_print(l, &f);
 }
