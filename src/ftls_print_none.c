@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 10:51:49 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/12 11:44:18 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/13 07:30:03 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ void	ftls_print_none(t_lsflags *f, t_lslink *l)
 	if (f->a == 0 && f->l == 0 && f->d == 0)
 	{
 		tmp = l;
-		while (tmp->next)
+		while (tmp)
 		{
-			if (tmp->name && tmp->name[0] != '.')
+			if (tmp && tmp->name[0] != '.')
 			{
 				ft_printf("%s", tmp->name);
-				if (tmp->next->name && (f->a == 0 &&
+				if (tmp->next && (f->a == 0 &&
 					tmp->next->name[0] != '.'))
 					ft_printf("\t");
 			}

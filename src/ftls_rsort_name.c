@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 13:50:22 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/12 10:49:53 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/13 07:29:08 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ftls_rsort_name(t_lslink **l)
 		while (slow && slow->next)
 		{
 			fast = slow;
-			while (fast->name && fast->next->name)
+			while (fast && fast->next)
 			{
 				if (ft_strcmp(fast->name, fast->next->name) < 0)
 				{
