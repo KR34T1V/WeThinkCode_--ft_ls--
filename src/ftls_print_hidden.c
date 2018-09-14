@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 10:51:49 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/13 14:51:53 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/14 08:27:43 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ void	ftls_print_hidden(t_lsflags *f, t_lslink *l)
 				ft_printf("%s", tmp->name);
 				if (f->d == 0 && tmp->next)
 					ft_printf("\t");
+				else
+					ft_printf("\n");
 			}
 			if (f->d == 1)
 				break ;
