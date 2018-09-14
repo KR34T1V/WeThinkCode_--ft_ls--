@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 15:48:10 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/14 07:16:09 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/14 09:38:16 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	ftls_flag_toggle(char c, t_lsflags *f)
 {
 	if (c == 'R')
-		f->R = 1;
+		f->lr = 1;
 	else if (c == 'a')
 		f->a = 1;
 	else if (c == 'l')

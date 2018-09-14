@@ -6,20 +6,19 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 15:33:08 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/14 08:15:35 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/14 09:36:34 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_STRUCT_H
 # define FT_STRUCT_H
 
-
 typedef struct		s_lsflags
 {
 	int				dir;
 	int				flags;
 	int				multi;
-	int				R;
+	int				lr;
 	int				a;
 	int				l;
 	int				r;
