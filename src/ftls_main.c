@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 15:39:12 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/14 07:37:02 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/14 08:54:24 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ static void	ftls_choose(int ac, char **av, int i, t_lsflags *f)
 				f->multi = 1;
 			ftls_read_dir(av[i], f);
 		}
+		else
+			ft_printf("ERROR: No such file or directory!\n");
 		i++;
 	}
 }
