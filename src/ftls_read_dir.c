@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/13 09:58:51 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/14 09:35:46 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/14 09:52:41 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ftls_read_dir(char *path, t_lsflags *f)
 		ft_printf("%s:\n", tmp);
 		free(tmp);
 	}
-	if (f->f == 0 && f->d == 0)
+	if (f->f == 0 && f->d == 0 && f->dir == 1)
 		ftls_sort(f, &l);
 	ftls_print(l, f);
 	if (f->lr == 1 && f->d == 0)
