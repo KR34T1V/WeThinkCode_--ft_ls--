@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 15:59:22 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/14 07:42:45 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/14 08:18:23 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void		ftls_print_long(t_lsflags *f, t_lslink *l)
 	{
 		tmp = l;
 		total = ftls_get_blocktotal(l, f);
-		if (f->multi == 0 && f->d == 0 && l->dir == 1)
+		if (f->multi == 0 && f->d == 0 && f->dir == 1)
 			ft_printf("total %i\n", total);
 		while (tmp)
 		{

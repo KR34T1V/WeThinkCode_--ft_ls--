@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 15:33:08 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/13 12:40:52 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/14 08:15:35 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 typedef struct		s_lsflags
 {
+	int				dir;
 	int				flags;
 	int				multi;
 	int				R;
@@ -31,7 +32,6 @@ typedef struct		s_lsflags
 
 typedef struct		s_lslink
 {
-	int				dir;
 	int				block;
 	char			*name;
 	int				namelen;

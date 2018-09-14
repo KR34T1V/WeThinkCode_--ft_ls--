@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 14:44:26 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/14 07:15:36 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/14 08:16:03 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static void	ftls_gets_dir(char *path, t_lslink *l, DIR *dir)
 	}
 }
 
-void		ftls_get_all(char *path, t_lslink *l)
+void		ftls_get_all(char *path, t_lslink *l, t_lsflags *f)
 {
 	DIR				*dir;
 
@@ -68,7 +68,7 @@ void		ftls_get_all(char *path, t_lslink *l)
 	{
 		if (ft_strcmp(strerror(errno), "Not a directory") == 0)
 		{
-			l->dir = 0;
+			f->dir = 0;
 			ftls_gets_file(path, l);
 		}
 		else
@@ -76,7 +76,7 @@ void		ftls_get_all(char *path, t_lslink *l)
 	}
 	else
 	{
-		l->dir = 1;
+		f->dir = 1;
 		ftls_gets_dir(path, l, dir);
 	}
 	closedir(dir);

@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/13 10:44:34 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/13 18:18:26 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/14 08:17:47 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	ftls_link_free(t_lslink **l)
 	{
 		next = tmp;
 		tmp = tmp->next;
-		next->dir = 0;
 		next->block = 0;
 		ft_strdel(&next->name);
 		next->namelen = 0;

@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 15:32:28 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/13 14:57:34 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/14 08:16:36 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void		ftls_flag_rset(t_lsflags *f);
 void		ftls_flag_set();
 t_lslink	*ftls_link_add(t_lslink *l);
 void		ftls_link_free(t_lslink **l);
-void		ftls_get_all(char *path, t_lslink *l);
+void		ftls_get_all(char *path, t_lslink *l, t_lsflags *f);
 void		ftls_get_block(char *path, t_lslink *l);
 int 		ftls_get_blocktotal(t_lslink *l, t_lsflags *f);
 void		ftls_get_name(t_lslink *l, struct dirent *ent);
