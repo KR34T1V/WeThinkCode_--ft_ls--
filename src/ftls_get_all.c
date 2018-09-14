@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 14:44:26 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/14 10:26:46 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/14 10:41:29 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void		ftls_get_all(char *path, t_lslink *l, t_lsflags *f)
 			ftls_gets_file(path, l);
 		}
 		else
-			ft_quit("ERROR: Not a valid file/directory\n");
+			ft_quit(strerror(errno));
 	}
 	else if (dir)
 	{
@@ -81,5 +81,5 @@ void		ftls_get_all(char *path, t_lslink *l, t_lsflags *f)
 		closedir(dir);
 	}
 	else
-		ft_quit("ERROR: Not a valid file/directory\n");
+		ft_quit(strerror(errno));
 }
