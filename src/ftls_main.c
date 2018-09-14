@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 15:39:12 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/14 08:54:24 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/14 10:11:21 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@ static void	ftls_choose(int ac, char **av, int i, t_lsflags *f)
 		if (i == 1 && av[i] && av[i][0] == '-')
 		{
 			ftls_flag_set(av[i], f);
-			if (ac == 2)
+			if (ac == 2 && 1 < ft_strlen(av[i]))
 				ftls_read_dir("./", f);
+			else if (ac == 2 && 1 == ft_strlen(av[i]))
+				ft_printf("ERROR: No such file or directory!\n");
 		}
 		else if (av[i] && av[i][0] != '-')
 		{
