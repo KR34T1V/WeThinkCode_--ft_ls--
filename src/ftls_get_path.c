@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/12 15:27:11 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/13 17:57:01 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/14 07:22:30 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ char	*ftls_get_path(char *path)
 	}
 	else
 		path = ft_strdup(path);
-	return(path);
+	return (path);
 }

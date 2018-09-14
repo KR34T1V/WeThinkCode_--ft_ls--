@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 13:50:22 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/13 07:29:21 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/14 07:48:24 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	ftls_sort_time(t_lslink **l)
 					ftls_sort_switch(l, fast);
 					swap = 1;
 				}
-					fast = fast->next;
+				fast = fast->next;
 			}
 			slow = slow->next;
 		}

@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/13 09:33:25 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/13 17:47:41 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/14 07:25:17 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 t_lslink	*ftls_link_add(t_lslink *l)
 {
-	t_lslink		*tmp = NULL;
+	t_lslink		*tmp;
 
+	tmp = NULL;
 	if (l)
 	{
 		tmp = l->next;
@@ -24,5 +25,5 @@ t_lslink	*ftls_link_add(t_lslink *l)
 		tmp->prev = l;
 		l->next = tmp;
 	}
-	return(tmp);
+	return (tmp);
 }

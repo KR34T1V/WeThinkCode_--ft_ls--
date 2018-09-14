@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 14:44:26 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/13 18:28:36 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/14 07:15:36 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ static void	ftls_gets_dir(char *path, t_lslink *l, DIR *dir)
 	prev = l;
 	while ((ent = readdir(dir)) != NULL)
 	{
-
 		if (!(tmp))
 			tmp = ftls_link_add(prev);
 		ftls_get_name(tmp, ent);

@@ -6,13 +6,25 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 15:59:22 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/13 13:26:04 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/14 07:42:45 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_ls.h"
 
-void	ftls_print_long(t_lsflags *f, t_lslink *l)
+static void	ftls_printing(t_lsflags *f, t_lslink *tmp)
+{
+	ft_printf("%s ", tmp->perm);
+	ft_printf("%3i ", tmp->links);
+	if (f->g != 1)
+		ft_printf("%s  ", tmp->owner);
+	ft_printf("%s ", tmp->group);
+	ft_printf("%6i", tmp->fsize);
+	ft_printf("%s ", tmp->time);
+	ft_printf("%s\n", tmp->name);
+}
+
+void		ftls_print_long(t_lsflags *f, t_lslink *l)
 {
 	t_lslink	*tmp;
 	int			total;
@@ -28,16 +40,7 @@ void	ftls_print_long(t_lsflags *f, t_lslink *l)
 		{
 			if (tmp->name && ((tmp->name[0] == '.' && tmp->name[1] == '/')
 				|| (tmp->name[0] != '.')))
-			{
-				ft_printf("%s ", tmp->perm);
-				ft_printf("%3i ", tmp->links);
-				if (f->g != 1)
-					ft_printf("%s  ", tmp->owner);
-				ft_printf("%s ", tmp->group);
-				ft_printf("%6i", tmp->fsize);
-				ft_printf("%s ", tmp->time);
-				ft_printf("%s\n", tmp->name);
-			}
+				ftls_printing(f, tmp);
 			tmp = tmp->next;
 			if (f->d == 1)
 				break ;
@@ -45,5 +48,4 @@ void	ftls_print_long(t_lsflags *f, t_lslink *l)
 	}
 	else if ((f->a == 1 || f->d == 1) && (f->l == 1 || f->g == 1))
 		ftls_print_lhidden(f, l);
-
 }

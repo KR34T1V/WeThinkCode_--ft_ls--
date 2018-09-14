@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/13 12:50:23 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/13 15:17:25 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/14 07:47:00 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ftls_recall(char *path, t_lslink *l, t_lsflags *f)
 {
-	t_lslink 	*tmp;
+	t_lslink	*tmp;
 	char		*fre;
 
 	tmp = l;

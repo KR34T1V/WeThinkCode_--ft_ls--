@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 14:51:21 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/13 15:12:28 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/14 07:21:32 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ftls_get_links(char *path, t_lslink *l)
 	if (ft_isdir(path))
 	{
 		stat(fre = ft_strjoin(path, l->name), &st);
-		free (fre);
+		free(fre);
 	}
 	else if (!(ft_isdir(path)))
 		stat(path, &st);

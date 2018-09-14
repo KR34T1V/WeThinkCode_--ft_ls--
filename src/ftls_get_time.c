@@ -6,7 +6,7 @@
 /*   By: cterblan <cterblan@student.wethinkcode>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 15:00:24 by cterblan          #+#    #+#             */
-/*   Updated: 2018/09/13 18:24:01 by cterblan         ###   ########.fr       */
+/*   Updated: 2018/09/14 07:24:25 by cterblan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	ftls_get_time(char *path, t_lslink *l)
 	char			*fre;
 	char			*fre2;
 	char			*fre3;
-	char			*keepme;
 
 	if (ft_isdir(path))
 	{
@@ -29,8 +28,7 @@ void	ftls_get_time(char *path, t_lslink *l)
 	else if (!(ft_isdir(path)))
 		stat(path, &st);
 	l->ntime = st.st_mtime;
-	keepme = ctime(&st.st_ctimespec.tv_sec);
-	tmp = ft_strsub(keepme, 4, 12);
+	tmp = ft_strsub(ctime(&st.st_ctimespec.tv_sec), 4, 12);
 	fre = ft_strsub(tmp, 0, 3);
 	fre2 = ft_strsub(tmp, 3, 4);
 	fre3 = ft_strjoin(fre2, fre);
